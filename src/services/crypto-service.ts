@@ -2,11 +2,24 @@ const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
 function toBase64(bytes: Uint8Array) {
-  return Buffer.from(bytes).toString("base64");
+  let binary = "";
+  for (const byte of bytes) {
+    binary += String.fromCharCode(byte);
+  }
+  return btoa(binary);
 }
 
 function fromBase64(value: string) {
-  return new Uint8Array(Buffer.from(value, "base64"));
+  const binary = atob(value);
+  const bytes = new Uint8Array(binary.length);
+  for (let index = 0; index < binary.length; index += 1) {
+    bytes[index] = binary.charCodeAt(index);
+  }
+  return bytes;
+}
+
+function toBufferSource(bytes: Uint8Array): ArrayBuffer {
+  return bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) as ArrayBuffer;
 }
 
 async function deriveKey(password: string, salt: Uint8Array) {
@@ -18,7 +31,7 @@ async function deriveKey(password: string, salt: Uint8Array) {
     {
       name: "PBKDF2",
       hash: "SHA-256",
-      salt,
+      salt: toBufferSource(salt),
       iterations: 100000,
     },
     baseKey,
@@ -51,9 +64,9 @@ export async function encryptJson<T>(value: T, password: string): Promise<Encryp
 export async function decryptJson<T>(payload: EncryptedPayload, password: string): Promise<T> {
   const key = await deriveKey(password, fromBase64(payload.salt));
   const decrypted = await crypto.subtle.decrypt(
-    { name: "AES-GCM", iv: fromBase64(payload.iv) },
+    { name: "AES-GCM", iv: toBufferSource(fromBase64(payload.iv)) },
     key,
-    fromBase64(payload.ciphertext),
+    toBufferSource(fromBase64(payload.ciphertext)),
   );
 
   return JSON.parse(decoder.decode(decrypted)) as T;
