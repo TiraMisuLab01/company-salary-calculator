@@ -1,13 +1,24 @@
-const cards = [
-  { label: "税前总额", value: "15,508" },
-  { label: "税后到手", value: "11,955.97" },
-  { label: "个税", value: "372.89" },
-  { label: "个人五险一金", value: "3,179.14" },
-  { label: "公司缴纳", value: "5,552.00" },
-  { label: "年包预测", value: "230,000+" },
-];
+interface KpiCardsProps {
+  values: {
+    grossIncome: string;
+    netIncome: string;
+    tax: string;
+    personalSocialFundTotal: string;
+    employerContribution: string;
+    annualPackage: string;
+  };
+}
 
-export function KpiCards() {
+export function KpiCards({ values }: KpiCardsProps) {
+  const cards = [
+    { label: "税前总额", value: values.grossIncome },
+    { label: "税后到手", value: values.netIncome },
+    { label: "个税", value: values.tax },
+    { label: "个人五险一金", value: values.personalSocialFundTotal },
+    { label: "公司缴纳", value: values.employerContribution },
+    { label: "年包预测", value: values.annualPackage },
+  ];
+
   return (
     <section className="grid gap-4 md:grid-cols-3 xl:grid-cols-6">
       {cards.map((card) => (

@@ -25,16 +25,18 @@ export interface SocialFund {
 
 export interface PayrollRecord {
   id: string;
-  profileId: string;
   month: string;
   baseSalary: MoneyString;
   performanceSalary: MoneyString;
   bonus: MoneyString;
   subsidy: MoneyString;
   stockIncome: MoneyString;
+  specialDeductions: MoneyString;
+  grossIncome: MoneyString;
   tax: MoneyString;
   netIncome: MoneyString;
-  socialFund: SocialFund;
+  personalSocialFundTotal: MoneyString;
+  taxableIncome: MoneyString;
   createdAt: string;
   updatedAt: string;
 }
