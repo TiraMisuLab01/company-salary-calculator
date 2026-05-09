@@ -1,0 +1,11 @@
+.worktrees/
+worktrees/
+.superpowers/
+node_modules/
+dist/
+build/
+.DS_Store
+Thumbs.db
+2025-10-20岚图产品测试中心薪资沟通.txt
+秋招薪资.md
+image.png
