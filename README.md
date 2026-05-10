@@ -1,4 +1,4 @@
-# 岚图薪资分析工具 🧮
+# 东风薪资分析工具 🧮
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Tech](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev)
@@ -6,13 +6,14 @@
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite)](https://vite.dev)
 [![Vitest](https://img.shields.io/badge/test-21/21%20passing-brightgreen)]()
 
-> 一款本地优先的个人薪资分析可视化应用，专为岚图校招薪资结构设计，支持多档案管理、五险一金精确计算、方案对比、Excel 导入导出与加密存储。
+> 一款本地优先的个人薪资分析可视化应用，专为东风汽车体系的校招薪资结构设计，支持多档案管理、五险一金精确计算、方案对比、Excel 导入导出与加密存储。
 
-<br/>
+<br />
 
 ## ✨ 功能
 
 ### 📊 仪表盘
+
 - **7 项 KPI 卡片**：应发合计、税后到手、个税、个人五险一金、公司缴纳、年包预测、递延绩效
 - **薪资构成图**：税前/税后重叠柱 + 五险一金双柱，一键切换视角
 - **历史趋势图**：税前总额 / 税后到手双模式，支持拖拽缩放
@@ -20,32 +21,37 @@
 - **月度明细表**：13 列完整数据，支持行级删除
 
 ### 📝 薪资录入
+
 - 五大数据分区：工资构成 → 月度奖金与激励 → 五险一金比例与基数 → 扣除与福利 → 实发核对
 - **绩效拆分**：80% 当月预发 + 20% 递延年终
-- **四季度评级**：Q1~Q4 独立录入，系统按月份自动选用所在季度评级，仅在核算月（3/6/9/12）生效
+- **四季度评级**：Q1\~Q4 独立录入，系统按月份自动选用所在季度评级，仅在核算月（3/6/9/12）生效
 - **季度激励**：KPI 基数 ×（1 + 评级系数），A=+50% B=+20% C=0 D=-20%
-- **五险一金比例**：社保个人 10.3% / 公司 25.8%，公积金个人/公司各 10%，全部可手动调整
+- **五险一金比例**：社保 个人 / 公司 25.8%，公积金 个人/公司，全部可手动调整
 
 ### ⚖️ 方案对比
+
 - 当月实发工资 vs 假设方案，仅展示税后到手（简洁直观）
 - 差异分析：绝对差值 + 百分比变化 + 趋势箭头
 - **差异备注**：按月+方案版本号关联存储，支持查看/编辑/删除，历史记录可追溯、可导出
 
 ### 📥 导入导出
+
 - Excel 模板下载（23 列），拖拽上传 + 行级校验
 - 一键导出 Excel 明细 / PDF 报告
 - 备注记录导出 Excel
 
 ### 🔒 安全
+
 - Web Crypto API（PBKDF2 + AES-256-GCM）加密存储
 - 所有数据仅存浏览器 IndexedDB，不上传任何服务器
 - 无第三方追踪 / 无需联网
 
-<br/>
+<br />
 
 ## 🚀 快速开始
 
 ### 前提条件
+
 - [Node.js](https://nodejs.org/zh-cn/) ≥ 18
 - npm（随 Node.js 安装）
 
@@ -80,7 +86,7 @@ npm run build:exe       # 生成可分享的 ZIP 包
 npm run preview          # 预览生产构建
 ```
 
-<br/>
+<br />
 
 ## 📦 分发给非技术人员
 
@@ -91,6 +97,7 @@ powershell -ExecutionPolicy Bypass -File build-exe.ps1
 ```
 
 输出文件 `salary-tool-v1.0.zip` 包含：
+
 - `start.bat` — 双击启动（自动打开浏览器）
 - `server.cjs` — 零依赖 HTTP 服务器
 - `dist/` — 生产构建产物
@@ -98,7 +105,7 @@ powershell -ExecutionPolicy Bypass -File build-exe.ps1
 
 接收方只需安装 Node.js，解压后双击 `start.bat` 即可使用。
 
-<br/>
+<br />
 
 ## 🗂 项目结构
 
@@ -129,25 +136,25 @@ src/
 └── db/app-db.ts                 # Dexie/IndexedDB
 ```
 
-<br/>
+<br />
 
 ## 🛠 技术栈
 
-| 类别 | 技术 |
-|------|------|
-| 框架 | React 19 |
-| 语言 | TypeScript 6 |
-| 构建 | Vite 8 |
-| 样式 | Tailwind CSS 4 |
-| 图表 | ECharts 6 |
-| 数据库 | Dexie (IndexedDB) |
-| 加密 | Web Crypto API |
-| Excel | SheetJS (xlsx) |
-| PDF | jsPDF + html2canvas |
-| 计算 | decimal.js |
-| 测试 | Vitest + React Testing Library + Playwright |
+| 类别    | 技术                                          |
+| ----- | ------------------------------------------- |
+| 框架    | React 19                                    |
+| 语言    | TypeScript 6                                |
+| 构建    | Vite 8                                      |
+| 样式    | Tailwind CSS 4                              |
+| 图表    | ECharts 6                                   |
+| 数据库   | Dexie (IndexedDB)                           |
+| 加密    | Web Crypto API                              |
+| Excel | SheetJS (xlsx)                              |
+| PDF   | jsPDF + html2canvas                         |
+| 计算    | decimal.js                                  |
+| 测试    | Vitest + React Testing Library + Playwright |
 
-<br/>
+<br />
 
 ## 🧪 测试覆盖
 
@@ -155,27 +162,27 @@ src/
 ✓ 21 tests | 11 files passed
 ```
 
-| 测试文件 | 内容 |
-|----------|------|
+| 测试文件                     | 内容           |
+| ------------------------ | ------------ |
 | `payroll-record-service` | 工资记录保存/读取/删除 |
-| `crypto-service` | 加密/解密/错误密钥 |
-| `excel-import-service` | 导入校验 |
-| `AppShell` | 导航渲染 |
-| `DashboardPage` | KPI/图表/明细渲染 |
-| `EntryDashboardFlow` | 录入→仪表盘完整流程 |
-| `ComparePage` | 方案对比 + 备注增删改 |
-| `SettingsPage` | 参数重置 |
-| `SocialFundBreakdown` | 五险一金表格 |
-| `ScenarioService` | 假设参数 CRUD |
-| `SalarySummary` | 薪资汇总计算 |
+| `crypto-service`         | 加密/解密/错误密钥   |
+| `excel-import-service`   | 导入校验         |
+| `AppShell`               | 导航渲染         |
+| `DashboardPage`          | KPI/图表/明细渲染  |
+| `EntryDashboardFlow`     | 录入→仪表盘完整流程   |
+| `ComparePage`            | 方案对比 + 备注增删改 |
+| `SettingsPage`           | 参数重置         |
+| `SocialFundBreakdown`    | 五险一金表格       |
+| `ScenarioService`        | 假设参数 CRUD    |
+| `SalarySummary`          | 薪资汇总计算       |
 
-<br/>
+<br />
 
 ## 📄 许可
 
 MIT License
 
----
+***
 
 <p align="center">
   <sub>所有薪资数据仅存在于浏览器本地，不会被收集、上传或分享。</sub>
