@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import type { PayrollRecord } from "../../types/salary";
-import { listPayrollRecords, savePayrollRecord, type PayrollRecordInput } from "../../services/payroll-record-service";
+import { deletePayrollRecord, listPayrollRecords, savePayrollRecord, type PayrollRecordInput } from "../../services/payroll-record-service";
 
 interface PayrollDataContextValue {
   payrollRecords: PayrollRecord[];
   latestPayrollRecord?: PayrollRecord;
   addPayrollRecord: (input: PayrollRecordInput) => Promise<PayrollRecord>;
+  removePayrollRecord: (id: string) => Promise<void>;
 }
 
 const PayrollDataContext = createContext<PayrollDataContextValue | undefined>(undefined);
@@ -25,6 +26,10 @@ export function PayrollDataProvider({ children }: { children: ReactNode }) {
         const record = await savePayrollRecord(input);
         setPayrollRecords((current) => [record, ...current].sort((left, right) => right.month.localeCompare(left.month)));
         return record;
+      },
+      removePayrollRecord: async (id) => {
+        await deletePayrollRecord(id);
+        setPayrollRecords((current) => current.filter((r) => r.id !== id));
       },
     }),
     [payrollRecords],

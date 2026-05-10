@@ -1,3 +1,5 @@
+import * as XLSX from "xlsx";
+
 export interface ImportError {
   rowIndex: number;
   field: string;
@@ -23,7 +25,7 @@ export function validateImportRows(rows: Array<Record<string, unknown>>) {
     }
 
     if (Number.isNaN(Number(row.baseSalary))) {
-      errors.push({ rowIndex, field: "baseSalary", message: "基本工资必须为数字" });
+      errors.push({ rowIndex, field: "baseSalary", message: "固定薪资必须为数字" });
       return;
     }
 
@@ -32,4 +34,10 @@ export function validateImportRows(rows: Array<Record<string, unknown>>) {
   });
 
   return { validRows, errors };
+}
+
+export function parseWorkbookRows(buffer: ArrayBuffer) {
+  const workbook = XLSX.read(buffer, { type: "array" });
+  const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+  return XLSX.utils.sheet_to_json<Record<string, unknown>>(firstSheet);
 }
