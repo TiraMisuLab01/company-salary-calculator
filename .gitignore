@@ -12,6 +12,8 @@ dist
 dist-ssr
 test-results
 *.local
+salary-tool-portable
+salary-tool-v*.zip
 
 # Editor directories and files
 .vscode/*
