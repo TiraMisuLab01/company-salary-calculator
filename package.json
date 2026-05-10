@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "build:exe": "powershell -ExecutionPolicy Bypass -File build-exe.ps1"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",

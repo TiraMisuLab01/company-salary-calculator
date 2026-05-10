@@ -62,7 +62,7 @@ export function calculateLantuSalary(input: {
   let quarterlyIncentive = money(0);
   if (isQuarterSettleMonth(input.month) && currentRating && currentRating in QUARTERLY_RATE_MAP) {
     const rate = QUARTERLY_RATE_MAP[currentRating as Exclude<QuarterlyRating, "">];
-    const base = money(input.quarterlyBase || "12600");
+    const base = money(input.quarterlyBase || "0");
     quarterlyIncentive = base.mul(1 + rate);
   }
 

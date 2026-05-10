@@ -37,7 +37,7 @@ export function ImportPage() {
         q2Rating: String(row.q2Rating ?? "") as any,
         q3Rating: String(row.q3Rating ?? "") as any,
         q4Rating: String(row.q4Rating ?? "") as any,
-        quarterlyBase: String(row.quarterlyBase ?? "12600"),
+        quarterlyBase: String(row.quarterlyBase ?? "0"),
         departmentBonus: String(row.departmentBonus ?? "0"),
         patentBonus: String(row.patentBonus ?? "0"),
         specialDeductions: String(row.specialDeductions ?? "0"),
