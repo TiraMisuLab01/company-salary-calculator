@@ -21,7 +21,7 @@ const initialForm = {
   q2Rating: "" as QuarterlyRating,
   q3Rating: "" as QuarterlyRating,
   q4Rating: "" as QuarterlyRating,
-  quarterlyBase: "12600",
+  quarterlyBase: "",
   departmentBonus: "0",
   patentBonus: "0",
   specialDeductions: "0",
@@ -84,11 +84,11 @@ export function EntryPage() {
             </label>
             <label className="block" htmlFor="entry-baseSalary">
               <span className={FORM_LABEL}>固定薪资<span className={HELPER}>(70%部分)</span></span>
-              <input id="entry-baseSalary" className={INPUT} placeholder="11308" value={form.baseSalary} onChange={(e) => handleChange("baseSalary", e.target.value)} />
+              <input id="entry-baseSalary" className={INPUT} value={form.baseSalary} onChange={(e) => handleChange("baseSalary", e.target.value)} />
             </label>
             <label className="block" htmlFor="entry-performanceSalary">
               <span className={FORM_LABEL}>绩效薪资(全额)<span className={HELPER}>(30%部分)</span></span>
-              <input id="entry-performanceSalary" className={INPUT} placeholder="4200" value={form.performanceSalary} onChange={(e) => handleChange("performanceSalary", e.target.value)} />
+              <input id="entry-performanceSalary" className={INPUT} value={form.performanceSalary} onChange={(e) => handleChange("performanceSalary", e.target.value)} />
             </label>
             <label className="block" htmlFor="entry-performancePrepayRate">
               <span className={FORM_LABEL}>绩效预发比例 (%)</span>
@@ -203,15 +203,8 @@ export function EntryPage() {
                 <span className="text-[var(--color-rose)]"> *</span>
                 <span className={HELPER}>(必填，实际银行到账金额)</span>
               </span>
-              <input id="entry-actualNetIncome" className={INPUT} placeholder="11955.97" required value={form.actualNetIncome} onChange={(e) => handleChange("actualNetIncome", e.target.value)} />
+              <input id="entry-actualNetIncome" className={INPUT} placeholder="" required value={form.actualNetIncome} onChange={(e) => handleChange("actualNetIncome", e.target.value)} />
             </label>
-            {form.actualNetIncome && form.actualNetIncome !== "0" ? (
-              <div className="flex items-end pb-2">
-                <span className="rounded-lg bg-[var(--color-bg-primary)] px-3 py-2 text-xs tabular-nums text-[var(--color-text-muted)]">
-                  记录实际到手：<span className="font-semibold text-[var(--color-emerald)]">{Number(form.actualNetIncome).toFixed(2)}</span>
-                </span>
-              </div>
-            ) : null}
           </div>
         </div>
         <div className="flex justify-end">

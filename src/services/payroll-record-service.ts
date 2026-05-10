@@ -47,7 +47,7 @@ function buildPayrollRecord(input: PayrollRecordInput): PayrollRecord {
     q2Rating: input.q2Rating || "",
     q3Rating: input.q3Rating || "",
     q4Rating: input.q4Rating || "",
-    quarterlyBase: input.quarterlyBase || "12600",
+    quarterlyBase: input.quarterlyBase || "0",
     departmentBonus: input.departmentBonus || "0",
     patentBonus: input.patentBonus || "0",
     specialDeductions: input.specialDeductions || "0",
