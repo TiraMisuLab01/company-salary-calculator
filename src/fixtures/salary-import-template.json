@@ -1,0 +1,13 @@
+{
+  "requiredColumns": ["month", "baseSalary"],
+  "optionalColumns": ["performanceSalary", "bonus", "subsidy", "stockIncome", "specialDeductions"],
+  "exampleRow": {
+    "month": "2026-05",
+    "baseSalary": 11308,
+    "performanceSalary": 4200,
+    "bonus": 0,
+    "subsidy": 0,
+    "stockIncome": 0,
+    "specialDeductions": 1500
+  }
+}
