@@ -50,7 +50,7 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, "127.0.0.1", () => {
   console.log(`
   ┌─────────────────────────────────────────┐
-  │   岚图薪资分析工具 v1.0                  │
+  │   薪资分析工具 v1.0                  │
   │                                         │
   │   打开浏览器访问:                        │
   │   http://127.0.0.1:${PORT}                  │

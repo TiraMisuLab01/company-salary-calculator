@@ -21,7 +21,7 @@ Copy-Item (Join-Path $root "server.cjs") -Destination $pkgDir -Force
 Copy-Item (Join-Path $root "start.bat") -Destination $pkgDir -Force
 
 @"
-岚图薪资分析工具 v1.0
+薪资分析工具 v1.0
 ====================
 
 使用方式

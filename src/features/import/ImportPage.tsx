@@ -68,12 +68,12 @@ export function ImportPage() {
     <div className="mx-auto max-w-2xl space-y-5 sm:space-y-6">
       <div>
         <h1 className="text-xl font-bold tracking-tight text-[var(--color-text-primary)]">Excel 导入</h1>
-        <p className="mt-1 text-sm text-[var(--color-text-muted)]">上传岚图薪酬结构的工资表，校验后批量导入本地加密存储。</p>
+        <p className="mt-1 text-sm text-[var(--color-text-muted)]">上传特定薪酬结构的工资表，校验后批量导入本地加密存储。</p>
       </div>
       <div className={SECTION}>
         <h2 className="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">使用指南</h2>
         <ol className="list-inside list-decimal space-y-1 text-xs text-[var(--color-text-muted)]">
-          <li>下载模板文件，模板包含全部岚图薪酬字段。</li>
+          <li>下载模板文件，模板包含全部薪酬字段。</li>
           <li>选择填好的文件上传，系统自动校验月份和必填项。</li>
           <li>确认预览无误后点击导入，数据加密存入本地。</li>
         </ol>

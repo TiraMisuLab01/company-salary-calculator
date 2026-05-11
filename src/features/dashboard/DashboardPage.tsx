@@ -59,7 +59,7 @@ export function DashboardPage() {
       {latestPayrollRecord ? (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] px-4 py-3">
           <div className="flex flex-wrap items-center gap-3">
-            <span className={CHIP_STYLE}>岚图 · 默认档案</span>
+            <span className={CHIP_STYLE}>默认档案</span>
             <span className="text-xs text-[var(--color-text-muted)]">
               最新 <span className="font-medium text-[var(--color-text-primary)]">{latestPayrollRecord.month}</span>
             </span>

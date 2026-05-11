@@ -12,7 +12,7 @@ describe("Entry to dashboard flow", () => {
     await appDb.delete();
     await appDb.open();
     window.localStorage.clear();
-    window.history.pushState({}, "", "/entry");
+    window.location.hash = "#/entry";
   });
 
   it("persists a lantu payroll record and shows it on the dashboard", async () => {
@@ -77,7 +77,7 @@ describe("Entry to dashboard flow", () => {
     }, { timeout: FLOW_TIMEOUT });
 
     firstRender.unmount();
-    window.history.pushState({}, "", "/dashboard");
+    window.location.hash = "#/dashboard";
     render(<App />);
 
     expect(await screen.findByDisplayValue("20")).toBeInTheDocument();

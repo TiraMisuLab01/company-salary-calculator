@@ -72,7 +72,7 @@ export function EntryPage() {
     <div className="mx-auto max-w-2xl space-y-5 sm:space-y-6">
       <div>
         <h1 className="text-xl font-bold tracking-tight text-[var(--color-text-primary)]">薪资录入</h1>
-        <p className="mt-1 text-sm text-[var(--color-text-muted)]">按岚图薪酬结构录入月度工资、奖金、五险一金与福利。</p>
+        <p className="mt-1 text-sm text-[var(--color-text-muted)]">按特定薪资结构录入月度工资、奖金、五险一金与福利。</p>
       </div>
       <form className="space-y-5 sm:space-y-6" onSubmit={handleSubmit}>
         <div className={SECTION}>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AppShell } from "./features/app-shell/AppShell";
 import { ComparePage } from "./features/compare/ComparePage";
 import { PayrollDataProvider } from "./features/data/PayrollDataProvider";
@@ -12,7 +12,7 @@ export default function App() {
   return (
     <PayrollDataProvider>
       <ScenarioProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route element={<AppShell />}>
               <Route index element={<Navigate to="/entry" replace />} />
@@ -23,7 +23,7 @@ export default function App() {
               <Route path="/settings" element={<SettingsPage />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </ScenarioProvider>
     </PayrollDataProvider>
   );

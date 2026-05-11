@@ -1,0 +1,23 @@
+node_modules/
+dist/
+*.log
+.env
+.env.local
+
+# Tauri
+src-tauri/target/
+src-tauri/icons/
+
+# IDE internal
+.superpowers/
+
+# Personal / sensitive files
+2025-10-20*
+秋招薪资.md
+image.png
+
+# Documentation (not source code)
+docs/
+
+# Self
+.gitignore
